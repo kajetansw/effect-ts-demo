@@ -1,7 +1,7 @@
 {
   "name": "effect-ts-demo",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "tsx",
     "watch": "tsx watch",
@@ -12,7 +12,11 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "prettier": "3.4.2",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "effect": "^3.12.0"
   }
 }
