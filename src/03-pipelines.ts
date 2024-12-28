@@ -38,7 +38,7 @@ const divideBy = (by: number) => (a: number) =>
 //   Effect.map(subtract(5)),
 // );
 
-// const program = pipe(Effect.succeed(10), Effect.flatMap(divideBy(5)));
+// const program = pipe(Effect.succeed(10), Effect.map(divideBy(5)));
 
 // const program = pipe(Effect.succeed(10), Effect.flatMap(divideBy(5)));
 

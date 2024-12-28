@@ -1,4 +1,4 @@
-import { Effect, Schema } from "effect";
+import { Effect, pipe, Schema } from "effect";
 import { TaggedError } from "effect/Data";
 
 // interface Todo {
@@ -19,7 +19,7 @@ import { TaggedError } from "effect/Data";
 // }
 
 class HttpError extends TaggedError("HttpError") {}
-class JsonError extends TaggedError("JsonError") {}
+class ResponseJsonError extends TaggedError("ResponseJsonError") {}
 
 const Todo = Schema.Struct({
   userId: Schema.Number,
@@ -32,7 +32,7 @@ type Todo = Schema.Schema.Type<typeof Todo>;
 
 /*
  * ########################
- * CODE
+ * GET TODO IMPL
  * ########################
  */
 
@@ -47,13 +47,19 @@ type Todo = Schema.Schema.Type<typeof Todo>;
 
 //     const json = yield* Effect.tryPromise({
 //       try: () => res.json(),
-//       catch: () => new JsonError(),
+//       catch: () => new ResponseJsonError(),
 //     });
 
 //     const parsed = yield* decodeTodo(json);
 
 //     return parsed;
 //   });
+
+/*
+ * ########################
+ * GENERIC SAFE FETCH
+ * ########################
+ */
 
 // const safeFetch =
 //   <A>(schema: Schema.Schema<A>) =>
@@ -66,7 +72,7 @@ type Todo = Schema.Schema.Type<typeof Todo>;
 
 //       const json = yield* Effect.tryPromise({
 //         try: () => res.json(),
-//         catch: () => new JsonError(),
+//         catch: () => new ResponseJsonError(),
 //       });
 
 //       const parsed = yield* Schema.decodeUnknown(schema)(json);
@@ -74,6 +80,9 @@ type Todo = Schema.Schema.Type<typeof Todo>;
 //       return parsed;
 //     });
 
-// const getTodo = (id: number) => safeFetch(Todo)(`https://jsonplaceholder.typicode.com/todos/${id}`);
+// const getTodo = (id: number) =>
+//   safeFetch(Todo)(`https://jsonplaceholder.typicode.com/todos/${id}`);
 
-// Effect.runPromise(getTodo(1)).then(console.log);
+// const program = getTodo(1);
+
+// Effect.runPromise(program).then(console.log);

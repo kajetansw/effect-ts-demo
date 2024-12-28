@@ -1,26 +1,32 @@
 import { Effect } from "effect";
 
-/**
+/*
+ * ########################
  * sync
  * always succeeds
+ * ########################
  */
 
 // const log = (message: string) => Effect.sync(() => console.log(message));
 
 // Effect.runSync(log("Hello sync!"));
 
-/**
+/*
+ * ########################
  * try
  * can fail
+ * ########################
  */
 
 // const parseJson = (text: string) => Effect.try(() => JSON.parse(text));
 
 // console.log("Hello try!", Effect.runSync(parseJson('{"field":"Hello try!"}')));
 
-/**
+/*
+ * ########################
  * promise
  * always succeeds
+ * ########################
  */
 
 // const delay = (message: string, timeout: number) =>
@@ -35,9 +41,11 @@ import { Effect } from "effect";
 
 // Effect.runPromise(delay("Hello promise!", 500)).then(console.log);
 
-/**
+/*
+ * ########################
  * tryPromise
  * can fail
+ * ########################
  */
 
 // const getTodo = (id: number) =>

@@ -1,7 +1,9 @@
 import { Effect } from "effect";
 
-/**
- * ERROR HANDLING - NATIVE WAY
+/*
+ * ########################
+ * ERROR HANDLING - NATIVE
+ * ########################
  */
 
 // const divide = (a: number, b: number): number => {
@@ -19,8 +21,10 @@ import { Effect } from "effect";
 //   console.log("Error caught!");
 // }
 
-/**
+/*
+ * ########################
  * ERROR HANDLING - EFFECT
+ * ########################
  */
 
 // const divide = (a: number, b: number) =>
