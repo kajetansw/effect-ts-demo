@@ -13,7 +13,7 @@ import { Effect } from "effect";
 //   return a / b;
 // };
 
-// console.log("Division: ", divide(2, 1));
+// console.log("Division: ", divide(2, 0));
 
 // try {
 //   console.log("Division: ", divide(2, 0));
@@ -27,15 +27,14 @@ import { Effect } from "effect";
  * ########################
  */
 
-// const divide = (a: number, b: number) =>
-//   Effect.if(b !== 0, {
-//     onTrue: () => Effect.succeed(a / b),
-//     onFalse: () => Effect.fail(new Error("Cannot divide by zero!")),
-//   });
+// const divide = (a: number, b: number): Effect.Effect<number, Error> =>
+//   b !== 0
+//     ? Effect.succeed(a / b)
+//     : Effect.fail(new Error("Cannot divide by zero!"));
 
 // const division = divide(2, 1);
 
-// // const result = Effect.orElse(division, () => Effect.succeed(0));
+// const result = Effect.orElse(division, () => Effect.succeed(0));
 
 // const result = Effect.match(division, {
 //   onSuccess: (value) => `Result: ${value}`,
