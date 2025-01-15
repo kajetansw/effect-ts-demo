@@ -11,8 +11,8 @@ class HttpError extends Error {
   readonly _tag = "HttpError";
 }
 
-class ResponseJsonError extends Error {
-  readonly _tag = "ResponseJsonError";
+class ParseError extends Error {
+  readonly _tag = "ParseError";
 }
 
 // const getTodo = (id: number) =>
@@ -30,12 +30,12 @@ class ResponseJsonError extends Error {
 //     Effect.flatMap((res) =>
 //       Effect.tryPromise({
 //         try: () => res.json(),
-//         catch: () => new ResponseJsonError(),
+//         catch: () => new ParseError(),
 //       }),
 //     ),
 //   );
 
-// const getTodo = <T>(id: number) =>
+// const getTodo = (id: number) =>
 //   Effect.gen(function* () {
 //     const res = yield* Effect.tryPromise({
 //       try: () => fetch(`https://jsonplaceholder.typicode.com/todos/${id}`),
@@ -44,10 +44,10 @@ class ResponseJsonError extends Error {
 
 //     const parsed = yield* Effect.tryPromise({
 //       try: () => res.json(),
-//       catch: () => new ResponseJsonError(),
+//       catch: () => new ParseError(),
 //     });
 
-//     return parsed as T;
+//     return parsed as Todo;
 //   });
 
 // const program = getTodo(1);
