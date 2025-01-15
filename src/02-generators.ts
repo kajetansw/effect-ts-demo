@@ -9,6 +9,11 @@ import { Effect } from "effect";
 //     return a / b;
 //   });
 
-// const division = divide(5, 1);
+// const division = divide(5, 2);
 
-// console.log(Effect.runSync(division));
+// const result = Effect.match(division, {
+//   onSuccess: (val) => `Result: ${val}`,
+//   onFailure: () => `Error! Divided by zero!`,
+// });
+
+// console.log(Effect.runSync(result));
