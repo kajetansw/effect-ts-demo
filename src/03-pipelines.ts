@@ -44,8 +44,9 @@ const divideBy = (by: number) => (a: number) =>
 
 // const program = pipe(
 //   Effect.succeed(10),
-//   Effect.flatMap(divideBy(5)),
-//   Effect.orElse(() => Effect.succeed(-1)),
+//   Effect.flatMap(divideBy(0)),
+//   Effect.map((val) => `Result: ${val}`),
+//   Effect.catchAll((e) => Effect.succeed(e.message)),
 // );
 
-// console.log("Result:", Effect.runSync(program));
+// console.log(Effect.runSync(program));
