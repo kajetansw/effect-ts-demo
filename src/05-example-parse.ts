@@ -1,4 +1,4 @@
-import { Effect } from "effect";
+import { Effect, pipe } from "effect";
 
 interface Person {
   name: string;
@@ -14,7 +14,15 @@ class ParseError extends Error {
 // const parseJson = <T>(text: string) =>
 //   Effect.try({
 //     try: () => JSON.parse(text) as T,
-//     catch: () => new ParseError(),
+//     catch: (err) => new ParseError(),
 //   });
 
-// console.log(Effect.runSync(parseJson<Person>('{"name":"John","age":20}')));
+// const result = parseJson<Person>('{"name":"John","age":20}');
+
+// const result = pipe(
+//   parseJson<Person>('{"name":"John","age":20}'),
+//   Effect.map((person) => `${person.name}, age: ${person.age}`),
+//   Effect.catchTag("ParseError", () => Effect.succeed("Incorrect format!")),
+// );
+
+// console.log(Effect.runSync(result));
