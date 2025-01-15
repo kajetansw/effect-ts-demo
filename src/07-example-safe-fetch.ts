@@ -21,14 +21,14 @@ import { TaggedError } from "effect/Data";
 class HttpError extends TaggedError("HttpError") {}
 class ResponseJsonError extends TaggedError("ResponseJsonError") {}
 
-const Todo = Schema.Struct({
-  userId: Schema.Number,
-  id: Schema.Number,
-  title: Schema.String,
-  completed: Schema.Boolean,
-});
+// const Todo = Schema.Struct({
+//   userId: Schema.Number,
+//   id: Schema.Number,
+//   title: Schema.String,
+//   completed: Schema.Boolean,
+// });
 
-type Todo = Schema.Schema.Type<typeof Todo>;
+// type Todo = Schema.Schema.Type<typeof Todo>;
 
 /*
  * ########################

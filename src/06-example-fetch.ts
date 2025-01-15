@@ -11,8 +11,8 @@ class HttpError extends Error {
   readonly _tag = "HttpError";
 }
 
-class ParseError extends Error {
-  readonly _tag = "ParseError";
+class ResponseJsonError extends Error {
+  readonly _tag = "ResponseJsonError";
 }
 
 // const getTodo = (id: number) =>
@@ -30,7 +30,7 @@ class ParseError extends Error {
 //     Effect.flatMap((res) =>
 //       Effect.tryPromise({
 //         try: () => res.json(),
-//         catch: () => new ParseError(),
+//         catch: () => new ResponseJsonError(),
 //       }),
 //     ),
 //   );
@@ -44,7 +44,7 @@ class ParseError extends Error {
 
 //     const parsed = yield* Effect.tryPromise({
 //       try: () => res.json(),
-//       catch: () => new ParseError(),
+//       catch: () => new ResponseJsonError(),
 //     });
 
 //     return parsed as Todo;
